@@ -12,9 +12,9 @@ def authenticate(uzivatele):
     password = input("zadej heslo: ")
     hash_password = hashlib.md5()
     hash_password.update(password.encode('utf-8'))
-    print(hash_password.digest())
+    # print(hash_password.digest())
     if uzivatele.get(user) != hash_password.digest():
-        print("nesedi")
+        print("spatne uzivatelske jmeno nebo heslo")
         return 5
     else:
         choice = 0
@@ -133,23 +133,24 @@ def letter_counts(seznam):
 
 
 if __name__ == '__main__':
-    """ Authenikation vypnute - funkcni
+
     user_db = {"roman": b"\t\x8fk\xcdF!\xd3s\xca\xdeN\x83&'\xb4\xf6",
                "bob": b" ,\xb9b\xacY\x07[\x96K\x07\x15-#Kp",
                "ann": b"2%\x01p\xa0\xdc\xa9-S\xec\x96$\xf36\xca$",
                "mike": b'H,\x81\x1d\xa5\xd5\xb4\xbcmI\x7f\xfa\x98I\x1e8',
                "liz": b"2%\x01p\xa0\xdc\xa9-S\xec\x96$\xf36\xca$"}
     vystup = authenticate(user_db)
-    """
-    vystup = 1
+
     if vystup == 5:
-        print("neproslo")
+        # print("neproslo")
         exit(1)
     # veta = input(f"Zadej libovolne dlouho vetu: ")   odebrrane pro testovaci ucely
 
-    veta = ["Na Velký pátek budou muset mít všechny obchody zavřeno, běžně nesmějí být prodejny nad 200 metrů čtverečních podle zákona o prodejní době v maloobchodě v provozu jen na Velikonoční pondělí.", "Druha veta", "treti veta"]
+    veta = ["Na Velký pátek budou muset mít všechny obchody zavřeno, běžně nesmějí být prodejny nad 200 metrů čtverečních podle zákona o prodejní době v maloobchodě v provozu jen na Velikonoční pondělí.",
+            "Druha, veta",
+            "treti veta EEE 300 32"]
 
-    seznam_slov = analyza_pocet(veta[vystup])
+    seznam_slov = analyza_pocet(veta[vystup-1])
     counts = letter_counts(seznam_slov)
     capitals = cap_words(seznam_slov)
     lowers = lower_case(seznam_slov)
@@ -163,17 +164,16 @@ if __name__ == '__main__':
     print(f"soucet cisel:           = {value}")
     print(f"pocet uppercase slov:   = {uppers}")
     print(f"celkovy pocet slof:     = {len(seznam_slov)}")
-    print(f"-------------------------")
+    print("")
+    # print(f"-------------------------")
 
     print(f"--------HISTOGRAM-----------")
 
     for i in range(len(counts)):
-        sloupec = ""
-        sloupec = ["a"]*10
         pocet_mezer = len(counts) - counts[i]
         print(f"{i}|", '{}'.format(counts[i] * '*'), '{}'.format(pocet_mezer * ' '), f"|{counts[i]}")
     print(f"----------------------------")
-   #   print('{}: {}'.format(key, int(size * scale) * '*'))
+
 
     # print_hi('PyCharm')
 
