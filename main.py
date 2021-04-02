@@ -104,9 +104,43 @@ def numbers(seznam) -> int:
         i = i + 1
     return pocet_numbers, value
 
+def letter_counts(seznam):
+    i = 0
+    counts = []
+    max_pocet_pismen = 0
+    for i in range(len(seznam)):
+        if max_pocet_pismen < int(len(seznam[i])):
+            max_pocet_pismen = int(len(seznam[i]))
+
+        i = i + 1
+
+    i = 1
+    # print(counts)
+    # print(type(counts))
+    for i in range(max_pocet_pismen + 1):  # declarace pole integeru pro pocty characteru ve slovech
+        counts.append(int(0))
+        i = i + 1
+    # print(len(counts))
+    # print(counts)
+    # print(f"pocet pismen: ", max_pocet_pismen)
+    i = 1
+    for i in range(len(seznam)):
+        i = i + 1
+        counts[len(seznam[i-1])] = counts[len(seznam[i-1])] + 1
+        # print(seznam[i-1])
+    # print(counts)
+    return counts
+
+
 if __name__ == '__main__':
-    user_db = {"roman": b"\t\x8fk\xcdF!\xd3s\xca\xdeN\x83&'\xb4\xf6"}
-    # vystup = authenticate(user_db)
+    """ Authenikation vypnute - funkcni
+    user_db = {"roman": b"\t\x8fk\xcdF!\xd3s\xca\xdeN\x83&'\xb4\xf6",
+               "bob": b" ,\xb9b\xacY\x07[\x96K\x07\x15-#Kp",
+               "ann": b"2%\x01p\xa0\xdc\xa9-S\xec\x96$\xf36\xca$",
+               "mike": b'H,\x81\x1d\xa5\xd5\xb4\xbcmI\x7f\xfa\x98I\x1e8',
+               "liz": b"2%\x01p\xa0\xdc\xa9-S\xec\x96$\xf36\xca$"}
+    vystup = authenticate(user_db)
+    """
     vystup = 1
     if vystup == 5:
         print("neproslo")
@@ -116,18 +150,31 @@ if __name__ == '__main__':
     veta = "Na Velký pátek budou muset mít všechny obchody zavřeno, běžně nesmějí být prodejny nad 200 metrů čtverečních podle zákona o prodejní době v maloobchodě v provozu jen na Velikonoční pondělí."
 
     seznam_slov = analyza_pocet(veta)
+    counts = letter_counts(seznam_slov)
     capitals = cap_words(seznam_slov)
     lowers = lower_case(seznam_slov)
     uppers = upper_case(seznam_slov)
     numbers, value = numbers(seznam_slov)
+    print("")
     print(f"---------STATS-----------")
-    print(f"pocet title slov:       =", capitals)
-    print(f"pocet lowercase slov:   =", lowers)
-    print(f"pocet cisel:            =", numbers)
-    print(f"soucet cisel:           =", value)
-    print(f"pocet uppercase slov:   =", uppers)
-    print(f"celkovy pocet slof:     =", len(seznam_slov))
+    print(f"pocet title slov:       = {capitals}")
+    print(f"pocet lowercase slov:   = {lowers}")
+    print(f"pocet cisel:            = {numbers}")
+    print(f"soucet cisel:           = {value}")
+    print(f"pocet uppercase slov:   = {uppers}")
+    print(f"celkovy pocet slof:     = {len(seznam_slov)}")
     print(f"-------------------------")
+
+    print(f"--------HISTOGRAM-----------")
+
+    for i in range(len(counts)):
+        sloupec = ""
+        sloupec = ["a"]*10
+        pocet_mezer = len(counts) - counts[i]
+        print(f"{i}|", '{}'.format(counts[i] * '*'), '{}'.format(pocet_mezer * ' '), f"|{counts[i]}")
+    print(f"----------------------------")
+   #   print('{}: {}'.format(key, int(size * scale) * '*'))
+
     # print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
