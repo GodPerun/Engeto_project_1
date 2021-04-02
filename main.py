@@ -18,10 +18,10 @@ def authenticate(uzivatele):
         return 5
     else:
         choice = 0
-        print("Hello ", uzivatele.get(user))
+        print("Hello ", user)
 
         while choice not in [1, 2, 3]:
-            choice = int(input("Pleache chose text 1 or 2 or 3: "))
+            choice = int(input("Pleache choose text 1 or 2 or 3: "))
 
         return choice
 
@@ -147,9 +147,9 @@ if __name__ == '__main__':
         exit(1)
     # veta = input(f"Zadej libovolne dlouho vetu: ")   odebrrane pro testovaci ucely
 
-    veta = "Na Velký pátek budou muset mít všechny obchody zavřeno, běžně nesmějí být prodejny nad 200 metrů čtverečních podle zákona o prodejní době v maloobchodě v provozu jen na Velikonoční pondělí."
+    veta = ["Na Velký pátek budou muset mít všechny obchody zavřeno, běžně nesmějí být prodejny nad 200 metrů čtverečních podle zákona o prodejní době v maloobchodě v provozu jen na Velikonoční pondělí.", "Druha veta", "treti veta"]
 
-    seznam_slov = analyza_pocet(veta)
+    seznam_slov = analyza_pocet(veta[vystup])
     counts = letter_counts(seznam_slov)
     capitals = cap_words(seznam_slov)
     lowers = lower_case(seznam_slov)
