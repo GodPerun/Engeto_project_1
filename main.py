@@ -26,34 +26,6 @@ def authenticate(uzivatele):
         return choice
 
 
-
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    # print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-    authentikace = {"roman": b"\t\x8fk\xcdF!\xd3s\xca\xdeN\x83&'\xb4\xf6"}
-    print(authentikace.values())
-    retezec = "Tohle je text."
-    print(f"tohle bylo zadane:", retezec)
-    slovnik = {}
-    print(slovnik)
-    seznam = retezec.split()
-
-    i = 0
-    while i < len(seznam):
-        slovnik[i] = {"pocet_pismen": ""}
-        i += 1
-
-    i = 0
-    while i < len(seznam):
-        # print(" v print_hi funckgi ", seznam[i])
-        slovnik[i]["pocet_pismen"] = analyza(str(seznam[i]))
-        i += 1
-
-    print(slovnik)
-
-
 # Press the green button in the gutter to run the script.
 
 def analyza_pocet(veta) -> list:
@@ -147,7 +119,7 @@ if __name__ == '__main__':
     # veta = input(f"Zadej libovolne dlouho vetu: ")   odebrrane pro testovaci ucely
 
     veta = ["Na Velký pátek budou muset mít všechny obchody zavřeno, běžně nesmějí být prodejny nad 200 metrů čtverečních podle zákona o prodejní době v maloobchodě v provozu jen na Velikonoční pondělí.",
-            "Druha, veta",
+            "The monument contains 8198 acres and protects a portion of the largest deposit of freshwater fish fossils in the world. The richest fossil fish deposits are found in multiple limestone layers, which lie some 100 feet below the top of the butte. The fossils represet several varieties of perch, as well as other freshwater genera and herring similar to those in modern oceans. Other fish such as paddlefish, garpike and stingray are also present.",
             "treti veta EEE 300 32"]
 
     seznam_slov = analyza_pocet(veta[vystup-1])
