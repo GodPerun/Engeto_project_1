@@ -5,7 +5,7 @@
 
 import hashlib
 import re
-
+from task_template import TEXTS
 
 def authenticate(uzivatele):
     user = input("zadej jmeno: ")
@@ -117,10 +117,11 @@ if __name__ == '__main__':
         # print("neproslo")
         exit(1)
     # veta = input(f"Zadej libovolne dlouho vetu: ")   odebrrane pro testovaci ucely
-
-    veta = ["Na Velký pátek budou muset mít všechny obchody zavřeno, běžně nesmějí být prodejny nad 200 metrů čtverečních podle zákona o prodejní době v maloobchodě v provozu jen na Velikonoční pondělí.",
-            "The monument contains 8198 acres and protects a portion of the largest deposit of freshwater fish fossils in the world. The richest fossil fish deposits are found in multiple limestone layers, which lie some 100 feet below the top of the butte. The fossils represet several varieties of perch, as well as other freshwater genera and herring similar to those in modern oceans. Other fish such as paddlefish, garpike and stingray are also present.",
-            "treti veta EEE 300 32"]
+    print(TEXTS)
+    veta = TEXTS
+    #veta = ["Na Velký pátek budou muset mít všechny obchody zavřeno, běžně nesmějí být prodejny nad 200 metrů čtverečních podle zákona o prodejní době v maloobchodě v provozu jen na Velikonoční pondělí.",
+    #        "The monument contains 8198 acres and protects a portion of the largest deposit of freshwater fish fossils in the world. The richest fossil fish deposits are found in multiple limestone layers, which lie some 100 feet below the top of the butte. The fossils represet several varieties of perch, as well as other freshwater genera and herring similar to those in modern oceans. Other fish such as paddlefish, garpike and stingray are also present.",
+    #        "treti veta EEE 300 32"]
 
     seznam_slov = analyza_pocet(veta[vystup-1])
     counts = letter_counts(seznam_slov)
