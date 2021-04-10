@@ -141,8 +141,11 @@ if __name__ == '__main__':
     # print(f"-------------------------")
 
     print(f"--------HISTOGRAM-----------")
-
+    j = 0
     for i in range(len(counts)):
+        if j == 0:
+            j += 1
+            continue
         pocet_mezer = len(counts) - counts[i]
         print(f"{i}|", '{}'.format(counts[i] * '*'), '{}'.format(pocet_mezer * ' '), f"|{counts[i]}")
     print(f"----------------------------")
