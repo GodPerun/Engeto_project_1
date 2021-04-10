@@ -29,7 +29,7 @@ def authenticate(uzivatele):
 # Press the green button in the gutter to run the script.
 
 def analyza_pocet(veta) -> list:
-    seznam = re.split('\. |; |, |\*|\n | ', veta)
+    seznam = re.split('\. |; |, |\*| \n|\n | ', veta)
 
     # delka = delka[29].replace('.', '')
     i = 0
@@ -39,6 +39,7 @@ def analyza_pocet(veta) -> list:
         i = i + 1
     # list_updated - list slov bez punctuations
     # asik lepsi cele resit pres regex na alfanum znaky
+    print(list_updated)
     return list_updated
 
 def cap_words(seznam) -> int:
@@ -120,7 +121,7 @@ if __name__ == '__main__':
     print(TEXTS)
     veta = TEXTS
     #veta = ["Na Velký pátek budou muset mít všechny obchody zavřeno, běžně nesmějí být prodejny nad 200 metrů čtverečních podle zákona o prodejní době v maloobchodě v provozu jen na Velikonoční pondělí.",
-    #        "The monument contains 8198 acres and protects a portion of the largest deposit of freshwater fish fossils in the world. The richest fossil fish deposits are found in multiple limestone layers, which lie some 100 feet below the top of the butte. The fossils represet several varieties of perch, as well as other freshwater genera and herring similar to those in modern oceans. Other fish such as paddlefish, garpike and stingray are also present.",
+    #      "The monument contains 8198 acres and protects a portion of the largest deposit of freshwater fish fossils in the world. The richest fossil fish deposits are found in multiple limestone layers, which lie some 100 feet below the top of the butte. The fossils represet several varieties of perch, as well as other freshwater genera and herring similar to those in modern oceans. Other fish such as paddlefish, garpike and stingray are also present.",
     #        "treti veta EEE 300 32"]
 
     seznam_slov = analyza_pocet(veta[vystup-1])
